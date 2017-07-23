@@ -51,14 +51,14 @@ def discount_rewards(rewards):
 def train(replay):
     sequence_length = len(replay)
     rewards = [x[2] for x in replay]
-    d_rewards = discount_rewards(rewards)
-    d_rewards -= np.mean(d_rewards)
-    d_rewards /= np.std(d_rewards)
+    discounted_rewards = discount_rewards(rewards)
+    discounted_rewards -= np.mean(discounted_rewards)
+    discounted_rewards /= np.std(discounted_rewards)
     states = np.zeros((sequence_length, input_size))
     advantages = np.zeros((sequence_length, nb_actions))
     for i in range(sequence_length):
         states[i] = replay[i][0]
-        advantages[i][replay[i][1]] = d_rewards[i]
+        advantages[i][replay[i][1]] = discounted_rewards[i]
     model.fit(states, advantages, epochs=1, verbose=0)
 
 

@@ -1,3 +1,8 @@
+
+"""
+WORK IN PROGRESS
+"""
+
 import gym
 import numpy as np
 from keras.models import Model
@@ -7,10 +12,6 @@ from keras import backend as K
 import matplotlib.pyplot as plt
 from gym import wrappers
 
-
-"""
-WORK IN PROGRESS
-"""
 
 alpha = .001
 epsilon = 1
