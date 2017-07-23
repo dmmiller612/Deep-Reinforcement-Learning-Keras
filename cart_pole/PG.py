@@ -38,7 +38,7 @@ discount monte carlo over whole sequence
 Note on reversal: Think of it this way
 first total_reward is 1, so you start with terminal state reward, then discount it's value with rewards later on
 so let's say sequence is -1, -1, -1, 1, reversed would be ->
-1  + ((eps * 1 = .99) + -1) ... etc. It is just a trick
+1  + ((eps * 1 = .99) + -1) ... etc.
 """
 def discount_rewards(rewards):
     discounted_rewards = np.zeros_like(rewards)
